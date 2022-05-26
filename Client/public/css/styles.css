@@ -1,0 +1,157 @@
+.navHeading 
+{
+  font-size: 150% ;
+  font-family: Koulen, serif ;
+  text-align: center ;
+}
+
+.navContainer
+{
+  min-height: 10vh ;
+}
+
+.navLink 
+{
+  font-family: Roboto, sans-serif ;
+  font-size: 17px ;
+}
+
+.mainContainer 
+{
+  text-align: center ;
+  font-size: 17px ;
+  font-family: Roboto, sans-serif ;
+  margin-top: 1% ;
+  margin-bottom: 1% ;
+}
+
+.heading 
+{
+  font-size: 175% ;
+  margin-top: 1% ;
+  margin-bottom: 1% ;
+  font-weight: bold ;
+}
+
+.bold 
+{
+  font-weight: bold ;
+}
+
+.marginTB 
+{
+  margin-top: 1% ;
+  margin-bottom: 1% ;
+}
+
+.mainButton 
+{
+  margin-top: 1% ;
+  margin-bottom: 1% ;
+  background: rgb(33,37,41) ;
+  color: rgb(255,255,255) ;
+  width: 150px ;
+  height: 50px ;
+  box-shadow: 5px 5px 0px var(--bs-secondary) ;
+  border-style: none ;
+
+  transition-property: background ;
+  transition-timing-function: ease ;
+  transition-duration: 0.25s ;
+}
+
+.mainButton:hover
+{
+  background: rgb(50, 60, 70) ;
+}
+
+.mainButton:active
+{
+  background: rgb(33,37,41) ;
+}
+
+.mainFooter 
+{
+  margin-top: auto !important ;
+  color: rgb(255,255,255) ;
+  font-size: 12px ;
+  text-align: center ;
+  min-height: 10vh ;
+  background: rgb(33,37,41) ;
+  font-family: Roboto, sans-serif ;
+}
+
+.footerPar 
+{
+  padding-top: 5vh ;
+}
+
+.dropDiv 
+{
+  height: 50vh ;
+  width: 90% ;
+  margin-top: 1% ;
+  margin-bottom: 1% ;
+  border-style: dashed ;
+  background: rgb(235,235,235) ;
+}
+
+.dropPar 
+{
+  font-size: 25px ;
+  font-weight: bold ;
+}
+
+.body
+{
+  height: 100vh ;
+  margin: 0% ;
+  display: flex ;
+  flex-direction: column ;
+}
+
+.aniObject
+{
+  font-size: 150px ;
+  color: rgb(33,37,41) ;
+  animation: myAni 1.75s ease 0s infinite normal forwards ;
+}
+
+@keyframes myAni 
+{
+	0% 
+  {
+		opacity: 1 ;
+		transform: rotate(0) scale(1) ;
+	}
+
+	100% 
+  {
+		opacity: 0 ;
+		transform: rotate(-540deg) scale(0) ;
+	}
+}
+
+.aniContainer
+{
+  height: 80vh ;
+}
+
+.errorContainer
+{
+  background: rgb(33,37,41) ;
+  height: 80vh ;
+}
+
+.error
+{
+  color: rgb(255,255,255) ;
+  font-family: Koulen, serif ;
+  text-align: center ;
+  font-size: 250px ;
+}
+
+.displayNone
+{
+  display: none ;
+}

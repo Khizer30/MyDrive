@@ -2,19 +2,29 @@
   "name": "mydrive",
   "private": true,
   "version": "0.0.0",
-  "scripts": {
+  "scripts": 
+  {
+    "start": "cls && node ./Node/server.js",
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview"
   },
-  "dependencies": {
+  "dependencies": 
+  {
+    "@loadable/component": "^5.15.2",
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "formidable": "^2.0.1",
     "react": "^18.0.0",
     "react-dom": "^18.0.0"
   },
-  "devDependencies": {
+  "devDependencies": 
+  {
+    "@types/loadable__component": "^5.13.4",
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
     "@vitejs/plugin-react": "^1.3.0",
+    "react-router-dom": "^6.3.0",
     "typescript": "^4.6.3",
     "vite": "^2.9.9"
   }
