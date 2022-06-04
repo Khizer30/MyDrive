@@ -21,11 +21,11 @@ function Navbar(): JSX.Element
           <ul className="navbar-nav ms-auto">
 
             <li className="nav-item">
-              <NavLink to="/" className={ "nav-link navLink" + (location.pathname === "/" ? " active" : "") }> Download </NavLink>
+              <NavLink to="/" className={ "nav-link navLink" + (location.pathname === "/" ? " active" : "") }> Upload </NavLink>
             </li>
 
             <li className="nav-item">
-              <NavLink to="/upload" className={ "nav-link navLink" + (location.pathname === "/upload" ? " active" : "") }> Upload </NavLink>
+              <NavLink to="/download" className={ "nav-link navLink" + (location.pathname === "/download" ? " active" : "") }> Download </NavLink>
             </li>
 
           </ul>

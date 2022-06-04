@@ -33,6 +33,14 @@
   font-weight: bold ;
 }
 
+.heading2
+{
+  font-size: 125% ;
+  margin-top: 1% ;
+  margin-bottom: 1% ;
+  font-weight: bold ;
+}
+
 .bold 
 {
   font-weight: bold ;
@@ -42,6 +50,12 @@
 {
   margin-top: 1% ;
   margin-bottom: 1% ;
+}
+
+a, a:hover, a:focus, a:active 
+{
+  text-decoration: none ;
+  color: inherit ;
 }
 
 .mainButton 
@@ -154,4 +168,34 @@
 .displayNone
 {
   display: none ;
+}
+
+.invisible
+{
+  visibility: hidden ;
+}
+
+.proBar
+{
+  height: 50px ;
+  margin-top: 1% ;
+  margin-bottom: 1% ;
+}
+
+.w10
+{
+  width: 10% ;
+}
+
+.optionButton
+{
+  font-weight: bold ;
+  font-size: 17px ;
+  font-family: Roboto, sans-serif ;
+}
+
+.form-select:focus
+{
+  box-shadow: 3px 3px var(--bs-secondary) ;
+  outline: 1.75px ridge rgb(33,37,41) ;
 }

@@ -1,10 +1,9 @@
 {
   "name": "mydrive",
-  "private": true,
-  "version": "0.0.0",
+  "private": "false",
+  "version": "1.0.0",
   "scripts": 
   {
-    "start": "cls && node ./Node/server.js",
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview"
@@ -12,9 +11,7 @@
   "dependencies": 
   {
     "@loadable/component": "^5.15.2",
-    "cors": "^2.8.5",
-    "express": "^4.18.1",
-    "formidable": "^2.0.1",
+    "firebase": "^9.8.2",
     "react": "^18.0.0",
     "react-dom": "^18.0.0"
   },

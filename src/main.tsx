@@ -6,7 +6,7 @@ import Animation from "./pages/Animation" ;
 const Navbar = loadable(() => import("./pages/Navbar"), { fallback: <Animation /> }) ;
 const Download = loadable(() => import("./pages/Download"), { fallback: <Animation /> }) ;
 const Upload = loadable(() => import("./pages/Upload"), { fallback: <Animation /> }) ;
-const Error = loadable(() => import("./pages/Error"), { fallback: <Animation /> }) ;
+const NotFound = loadable(() => import("./pages/NotFound"), { fallback: <Animation /> }) ;
 
 // HTML DOM Element
 const app: HTMLElement = document.getElementById("app")! ;
@@ -20,10 +20,10 @@ function App(): JSX.Element
       <Routes>
         <Route path="/" element={ <Navbar /> }>
 
-          <Route index element={ <Download /> } />
-          <Route path="/upload" element={ <Upload /> } />
+          <Route index element={ <Upload /> } />
+          <Route path="/download" element={ <Download /> } />
           <Route path="/animation" element={ <Animation /> } />
-          <Route path="*" element={ <Error /> } />
+          <Route path="*" element={ <NotFound /> } />
 
         </Route>
       </Routes>

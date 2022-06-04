@@ -1,5 +1,5 @@
-// Error
-function Error(): JSX.Element
+// NotFound
+function NotFound(): JSX.Element
 {
   return (
   <>
@@ -10,5 +10,5 @@ function Error(): JSX.Element
   ) ;
 }
 
-// Export Error
-export default Error ;
+// Export NotFound
+export default NotFound ;
