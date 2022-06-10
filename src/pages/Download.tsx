@@ -1,20 +1,21 @@
 import { useState } from "react" ;
 import { ref, StorageReference, getDownloadURL, deleteObject } from "firebase/storage" ;
-import { storage, fetchList } from "../firebase" ;
+import { useSelector } from "react-redux" ;
+import { storage } from "../firebase" ;
 import Message from "./Message" ;
 
 // Download
-function Download(): JSX.Element
+function Download(props: any): JSX.Element
 {
   // Title
   document.title = "MyDrive - Download" ;
 
-  // Fetch List of Files
-  fetchList() ;
+  // Fetch List
+  props.fetch() ;
 
   // Variables
   const [name, setName] = useState("NULL") ;
-  const allFiles = JSON.parse(sessionStorage.getItem("allFiles")!) ;
+  const allFiles: string[] = JSON.parse(useSelector((state: any) => state.list.value)) ;
   // ...
   const [message, setMessage] = useState("NULL") ;
   const [type, setType] = useState("alert-danger") ;
@@ -37,7 +38,6 @@ function Download(): JSX.Element
     
       // Reset
       setName("NULL") ;
-      fetchList() ;
     })
   }
 
@@ -92,7 +92,7 @@ function Download(): JSX.Element
 
         <div className="form-floating">
           <select name="name" id="name" value={ name } onChange={ handleChange } className="form-select marginTB">
-            <option value="NULL" disabled className="displayNone"> </option>
+            <option value="NULL" disabled className="displayNone"></option>
             {
               allFiles.map(mapper)
             }
@@ -100,12 +100,16 @@ function Download(): JSX.Element
           <label htmlFor="name" className="form-label"> Select a File </label>
         </div>
 
+      { (name !== "NULL") &&
+      <>
         <div>
           <button onClick={ download } className="mainButton" type="button"> Download </button>
         </div>
         <div>
           <button onClick={ deleteIt } className="mainButton" type="button"> Delete </button>
         </div>
+      </>
+      }
       </form>
     </div>
   </>

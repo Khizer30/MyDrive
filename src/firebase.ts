@@ -1,5 +1,5 @@
 import { FirebaseApp, initializeApp } from "firebase/app" ;
-import { getStorage, FirebaseStorage, ref, StorageReference, listAll, ListResult } from "firebase/storage" ;
+import { getStorage, FirebaseStorage } from "firebase/storage" ;
 
 const firebaseConfig: object = 
 {
@@ -16,34 +16,5 @@ const firebaseConfig: object =
 const app: FirebaseApp = initializeApp(firebaseConfig) ;
 const storage: FirebaseStorage = getStorage(app) ;
 
-// Fetch List of Files
-function fetchList(): void
-{
-  let theRef: StorageReference = ref(storage, "/myFiles") ;
-  listAll(theRef)
-  .then((res: ListResult) =>
-  {
-    // Put File Paths in String
-    let arr: string = "" ;
-    res.items.forEach((newItem: StorageReference) =>
-    {
-      arr += newItem + " ... " ;
-    })
-    arr = arr.replaceAll("gs://mydrive-0786.appspot.com/myFiles/", "") ;
-  
-    // Put File Paths in Array
-    const myArr: string[] = arr.split(" ... ") ;
-    myArr.pop() ;
-  
-    // Set Session Storage
-    sessionStorage.setItem("allFiles", JSON.stringify(myArr)) ;
-  })
-  .catch(() =>
-  {
-    // Set Session Storage
-    sessionStorage.setItem("allFiles", JSON.stringify([])) ;
-  })
-}
-
 // Exports
-export { storage, fetchList } ;
+export { storage } ;

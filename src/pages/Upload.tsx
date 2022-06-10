@@ -1,23 +1,19 @@
 import { useState } from "react" ;
 import { ref, StorageReference, uploadBytesResumable, UploadTask, UploadTaskSnapshot } from "firebase/storage" ;
-import { storage, fetchList } from "../firebase" ;
-import Message from "./Message" ;
+import { storage } from "../firebase" ;
 
 // Upload
-function Upload(): JSX.Element
+function Upload(props: any): JSX.Element
 {
   // Title
   document.title = "MyDrive - Upload" ;
 
   // Fetch List of Files
-  fetchList() ;
+  props.fetch() ;
 
   // Variables
   const [selectedFile, setFile]: any = useState(undefined) ;
   const [progress, setProgress] = useState(0) ;
-  // ...
-  const [message, setMessage] = useState("NULL") ;
-  const [type, setType] = useState("alert-danger") ;
 
   // Handle Bug
   const handleBug = (event: any): void =>
@@ -50,10 +46,6 @@ function Upload(): JSX.Element
     {
       // Set Progress Bar
       setProgress(snapshot.bytesTransferred / snapshot.totalBytes * 100) ;
-
-      // Display Message
-      setType("alert-success") ;
-      setMessage("File Uploaded Successfully!") ;
     })
   }
 
@@ -62,22 +54,20 @@ function Upload(): JSX.Element
     <div className="container-fluid mainContainer">
       <h1 className="heading"> Upload Files </h1>
 
-      <Message mes={ message } type={ type } />
-
       <form action="" method="post" target="_self" encType="multipart/form-data"
       autoComplete="off" noValidate onSubmit={ handleBug }>
-        <div>
-          <button type="button" onClick={ handleClick } className="mainButton"> Select a File </button>
+        <div className="progress proBar">
+          <div className="progress-bar bg-dark progress-bar-striped progress-bar-animated" style={{ width: progress + "%" }}></div>
         </div>
-      { (selectedFile !== undefined) &&
-        <div>
-          <p className="heading2"> { selectedFile.name } </p>
+        <div className={ (selectedFile === undefined ? "invisible" : "") }>
+          <p className="heading2"> { (selectedFile === undefined ? "NULL" : selectedFile.name) } </p>
           <button type="button" onClick={ upload } className="mainButton"> Upload </button>
-          <div className="progress proBar">
-            <div className="progress-bar bg-dark progress-bar-striped progress-bar-animated" style={{ width: progress + "%" }}></div>
+        </div>
+        <div className="d-flex d-sm-flex justify-content-center align-items-center justify-content-sm-center align-items-sm-center">
+          <div className="d-flex d-md-flex justify-content-center align-items-center justify-content-md-center align-items-md-center dropDiv">
+            <p onClick={ handleClick } className="dropLink"> Select a File to Upload </p>
           </div>
         </div>
-      }
       </form>
     </div>
   </>
