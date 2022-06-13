@@ -1,6 +1,7 @@
 import { useState } from "react" ;
 import { ref, StorageReference, uploadBytesResumable, UploadTask, UploadTaskSnapshot } from "firebase/storage" ;
 import { storage } from "../firebase" ;
+import Message from "./Message" ;
 
 // Upload
 function Upload(props: any): JSX.Element
@@ -14,6 +15,8 @@ function Upload(props: any): JSX.Element
   // Variables
   const [selectedFile, setFile]: any = useState(undefined) ;
   const [progress, setProgress] = useState(0) ;
+  const [mes, setMes] = useState("NULL") ;
+  const [type, setType] = useState("alert-success") ;
 
   // Handle Bug
   const handleBug = (event: any): void =>
@@ -45,7 +48,14 @@ function Upload(props: any): JSX.Element
     uploadTask.on("state_changed", (snapshot: UploadTaskSnapshot): void =>
     {
       // Set Progress Bar
-      setProgress(snapshot.bytesTransferred / snapshot.totalBytes * 100) ;
+      let progress = snapshot.bytesTransferred / snapshot.totalBytes * 100 ;
+      setProgress(progress) ;
+
+      if (progress === 100)
+      {
+        setType("alert-success") ;
+        setMes(selectedFile.name + " Uploaded Successfully!") ;
+      }
     })
   }
 
@@ -56,6 +66,9 @@ function Upload(props: any): JSX.Element
 
       <form action="" method="post" target="_self" encType="multipart/form-data"
       autoComplete="off" noValidate onSubmit={ handleBug }>
+
+        <Message type={ type } mes={ mes } />
+
         <div className="progress proBar">
           <div className="progress-bar bg-dark progress-bar-striped progress-bar-animated" style={{ width: progress + "%" }}></div>
         </div>
